@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Safa Samaj- Image Classification</title>
+	<link rel="shortcut icon" type="image/png" href="logo.png">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class=page>
+    <style>
+        body {
+          background-image: url('./waste\ background.jpg');
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+        }
+        </style>
+    <h1>Safa-Samaj : Waste Management by Image Classification</h1>
+    <br>
+    <p>Enter your input image:</p>
+	<p>     CATEGORIES=['cardboard','glass','metal','paper','plastic','degradable']
+    <form  method = "POST" id="form"  action=""
+         enctype = "multipart/form-data">
+        <label>
+            <input type="file" accept="image/png, image/jpeg, image/gif" name="image"/>
+        </label>
+        
+	
+        <input type="submit" value="Submit">
+        
+	{% if error: %}
+        <p class=error><strong>Error:</strong> {{ error }} </p>
+        {% endif %}
+    </form>
+    
+
+    {% if answer is not none: %}
+    <p><label name='answer'>Classified: {{ answer }}</label><br /></p>
+    {% endif %}
+</div>
+</body>
+</html>
